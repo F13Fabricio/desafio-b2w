@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "nodemon src/server.js --ignore __tests__",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/F13Fabricio/desafio-b2w/issues"
   },
-  "homepage": "https://github.com/F13Fabricio/desafio-b2w#readme"
+  "homepage": "https://github.com/F13Fabricio/desafio-b2w#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.2"
+  }
 }
