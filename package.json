@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/F13Fabricio/desafio-b2w#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.7.1"
   },
   "devDependencies": {
+    "factory-girl": "^5.0.4",
     "jest": "^24.9.0",
     "nodemon": "^1.19.2"
   }
