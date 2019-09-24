@@ -1,5 +1,14 @@
-const express = require('express');
 const app = require('./app');
+const mongoose = require('mongoose');
+mongoose.set('useFindAndModify', false);
+
+mongoose.connect(
+  'mongodb://localhost:27017/test',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
+);
 
 const port = 3000;
 

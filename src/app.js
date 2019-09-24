@@ -1,15 +1,21 @@
 const express = require('express');
 const routes = require('./routes');
+const errorHandler = require('./middlewares/error-handler.middleware');
 
 class App {
   constructor() {
     this.express = express();
-    this.middlewares();
+    this.preMiddlewares();
     this.routes();
+    this.postMiddlewares();
   }
 
-  middlewares() {
+  preMiddlewares() {
     this.express.use(express.json());
+  }
+
+  postMiddlewares() {
+    this.express.use(errorHandler);
   }
 
   routes() {
