@@ -41,10 +41,14 @@ class PlanetsController {
         res.status(200).send(planet);
       } else {
         res.status(404);
-        next(new Error('The planet does not exist.'));
+        next(new Error('The planet does not exists.'));
       }
 
     } catch (error) {
+      if (error.name == 'CastError') {
+        res.status(404);
+        next(new Error('The planet does not exists.'));
+      }
       next(error);
     }
   }
@@ -56,7 +60,7 @@ class PlanetsController {
         res.status(200).send(planet);
       } else {
         res.status(404);
-        next(new Error('The planet does not exist.'));
+        next(new Error('The planet does not exists.'));
       }
 
     } catch (error) {
@@ -70,10 +74,14 @@ class PlanetsController {
         res.status(200).send({ message: 'Planet successfully deleted.' });
       } else {
         res.status(404);
-        next(new Error('The planet does not exist.'));
+        next(new Error('The planet does not exists.'));
       }
 
     } catch (error) {
+      if (error.name == 'CastError') {
+        res.status(404);
+        next(new Error('The planet does not exists.'));
+      }
       next(error);
     }
   }
