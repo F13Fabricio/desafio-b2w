@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 require('../models/planet.model');
 const Planet = mongoose.model('Planet');
+const { timesSpotted } = require('../services/planets.service');
 
 class PlanetsController {
   
@@ -17,6 +18,7 @@ class PlanetsController {
   async create(req, res, next) {
     try {
       let planet = new Planet(req.body);
+      planet.times_spotted = await timesSpotted(req.body.name);
       await planet.validate(async (err) => {
         if (err) {
           res.status(400);
